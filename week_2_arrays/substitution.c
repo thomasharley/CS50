@@ -3,7 +3,7 @@
 #include <string.h>
 #include <ctype.h>
 
-char* encode(char text[], char cipher[]);
+char* encode(char text[], char cipher[]); /* instantiate function */
 
 int main(int argc, char *argv[]) {
 
@@ -31,10 +31,10 @@ int main(int argc, char *argv[]) {
     }
         
     printf("plaintext: ");
-    scanf("%s", &plaintext);
+    scanf("%s", &plaintext); /* prompt for plaintext entry */
 
-    char *ciphertext = encode(plaintext, argv[1]);
-    printf("ciphertext: %s\n", ciphertext);
+    char *ciphertext = encode(plaintext, argv[1]); /* pass to encoding function */
+    printf("ciphertext: %s\n", ciphertext); /* print encoded output */
 }
 
 
@@ -43,16 +43,16 @@ char* encode(char text[], char cipher[]) {
     static char output[100]; /* static to ensure it persists after function return */
 
     for (int i = 0, len = strlen(text); i<len; i++) {
-        if(isalpha(text[i])) {
-            if(isupper(text[i])) {
+        if(isalpha(text[i])) { /* check text is alphabetic */
+            if(isupper(text[i])) { /* if uppercase */
                 output[i] = toupper(cipher[text[i] - 'A']);
             }
-            else if(islower(text[i])) {
+            else if(islower(text[i])) { /* if lowercase */
                 output[i] = tolower(cipher[text[i] - 'a']);
             }
         }
         else {
-            output[i] = text[i];
+            output[i] = text[i]; /* if text is not alphabetic, print as is */
         }
     }
     return output;
