@@ -3,6 +3,9 @@
         "string": "c",
         "format": "c",
         "compare": "c",
-        "cstdint": "c"
+        "cstdint": "c",
+        "string.h": "c",
+        "math.h": "c",
+        "stdio.h": "c"
     }
 }
