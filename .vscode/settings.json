@@ -6,6 +6,7 @@
         "cstdint": "c",
         "string.h": "c",
         "math.h": "c",
-        "stdio.h": "c"
+        "stdio.h": "c",
+        "stdbool.h": "c"
     }
 }
