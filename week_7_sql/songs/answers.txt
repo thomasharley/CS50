@@ -1,0 +1,16 @@
+To calculate the audio aura you could:
+    1. compute the average energy of the 100 songs
+    2. compute the average valence of the 100 songs
+    3. compute the average danceability of the 100 songs
+    4. average these three numbers to compute 'audio aura' field for the user.
+
+However, this may not be representative as this assumes equal weighting of energy, valence and danceability to compute users 'audio aura'.
+
+A user may preference the energy of a song over its danceability, vice-versa, etc.
+
+These three fields are also a bit limiting, there may be aspects of songs not captured by these three metrics.
+
+We should add in things like tempo, duration_ms, loudness, speechiness. But this becomes trickier as these are not values between 0 and 1.
+
+We would have to come up with a way to convert these to values that could be averaged along with the other parameters.
+
