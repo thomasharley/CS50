@@ -1,0 +1,42 @@
+.background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url('images/headphones.jpg') no-repeat center center fixed;
+    background-size: cover;
+    filter: blur(5px); /* Adjust the blur level as needed */
+    -webkit-filter: blur(5px); /* For Safari */
+    z-index: -1;
+}
+
+.foreground {
+    position: relative;
+    background-color: rgba(255, 255, 255, 0.5); /* White with 80% opacity */
+    padding: 20px;
+    border-radius: 10px;
+    z-index: 1;
+}
+
+.content {
+    position: relative;
+    z-index: 1;
+    text-align: center;
+    color: white;
+    padding: 20px;
+}
+.content h1 {
+    font-size: 3em;
+}
+.box {
+    width: 500px;
+    height: 425px;
+    background-color: rgba(255, 255, 255, 1); /* transparency */
+    padding: 20px;
+    border-radius: 10px;
+    margin: 20px 10px; /* Increased spacing */
+}
+.spacer {
+    margin-top: 20px; /* Adjust the spacing as needed */
+}

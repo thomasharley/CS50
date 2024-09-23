@@ -86,7 +86,7 @@ AND duration < 60;
 -- find ID of earliest flight out of fiftyville airport:
 SELECT ID 
 FROM airports 
-WHERE city = 'Fiftyville' 
+WHERE city = 'Fiftyville';
 -- airport ID is 8.
 
 -- this will find the correct ID.
