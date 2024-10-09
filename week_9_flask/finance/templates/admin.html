@@ -1,0 +1,85 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Home
+{% endblock %}
+
+{% block main %}
+
+    <h4>Users</h4>
+    
+    <table class="table" id="users-table">
+        <thead>
+            <tr>
+                <th class="text-start">Username</th>
+                <th class="text-end">User ID</th>
+                <th class="text-end">Cash</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for user in users %}
+                <tr class="user-row {% if loop.index > 5 %}d-none{% endif %}">
+                    <td class="text-start">{{ user["username"] }}</td>
+                    <td class="text-end">{{ user["id"] }}</td>
+                    <td class="text-end">{{ user["cash"] }}</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+    <button id="toggle-users" class="btn btn-primary mb-3">Show More</button>
+
+    <h4>Transactions</h4>
+
+    <table class="table" id="transactions-table">
+        <thead>
+            <tr>
+                <th class="text-start">Symbol</th>
+                <th class="text-end">Transaction ID</th>
+                <th class="text-end">User ID</th>
+                <th class="text-end">Shares</th>
+                <th class="text-end">Price</th>
+                <th class="text-end">Type</th>
+                <th class="text-end">Time</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for transaction in transactions %}
+                <tr class="transaction-row {% if loop.index > 5 %}d-none{% endif %}">
+                    <td class="text-start">{{ transaction["symbol"] }}</td>
+                    <td class="text-end">{{ transaction["id"] }}</td>
+                    <td class="text-end">{{ transaction["user_id"] }}</td>
+                    <td class="text-end">{{ transaction["shares"] }}</td>
+                    <td class="text-end">{{ transaction["price"] }}</td>
+                    <td class="text-end">{{ transaction["type"] }}</td>
+                    <td class="text-end">{{ transaction["time"] }}</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+    <button id="toggle-transactions" class="btn btn-primary mb-3">Show More</button>
+
+    <script>
+        document.getElementById('toggle-users').addEventListener('click', function() {
+            const rows = document.querySelectorAll('#users-table .user-row');
+            rows.forEach((row, index) => {
+                if (index >= 5) {
+                    row.classList.toggle('d-none');
+                }
+            });
+            this.textContent = this.textContent === 'Show More' ? 'Show Less' : 'Show More';
+        });
+
+        document.getElementById('toggle-transactions').addEventListener('click', function() {
+            const rows = document.querySelectorAll('#transactions-table .transaction-row');
+            rows.forEach((row, index) => {
+                if (index >= 5) {
+                    row.classList.toggle('d-none');
+                }
+            });
+            this.textContent = this.textContent === 'Show More' ? 'Show Less' : 'Show More';
+        });
+    </script>
+
+{% endblock %}
